@@ -1,0 +1,1 @@
+# HotspotLite-new-design-ver2
