@@ -180,6 +180,21 @@ let formData = {
 };
 
 window.onload = function () {
+  var popover = new bootstrap.Popover($("#my-popover"), {
+    animation: true,
+
+    html: true,
+    content: `<div> 
+      <h4> Klik Untuk Lihat Konten </h4>
+      <p>Asik! Sekarang kamu bisa menikmati konten terbaru</p>
+      
+      <div style="float:'right'">
+        <a class='btn btn-primary' href='#' onClick="coverAllClick()"> Coba Sekarang ! </a>
+      </div>
+    </div>`,
+    placement: "top",
+  });
+  popover.show();
   $(".coverAll").show();
   getJadwal();
 };
