@@ -44,6 +44,7 @@ function supportsVideoType(type) {
 
   return video.canPlayType(formatsVideo[type] || type);
 }
+
 // Usage
 if (supportsVideoType("webm") === "probably") {
   videoArray.push(formatsVideo.webm + " : probably");
@@ -189,7 +190,7 @@ window.onload = function () {
       <p>Asik! Sekarang kamu bisa menikmati konten terbaru</p>
       
       <div style="float:'right'">
-        <a class='btn btn-primary' href='#' onClick="coverAllClick()"> Coba Sekarang ! </a>
+        <a class='btn btn-primary' id="coba-sekarang"> Coba Sekarang ! </a>
       </div>
     </div>`,
     placement: "top",
@@ -201,6 +202,7 @@ window.onload = function () {
 
 function coverAllClick() {
   $(".coverAll").hide();
+  popover.hide();
   $("#desktop-content").css("background-color", "transparent");
   $("#mobile-content").css("background-color", "transparent");
 }
@@ -260,6 +262,10 @@ $(document).ready(function () {
     $("#dropdownMenuButton1").text("Kualitas 360p");
     var video = document.getElementById("videoPlayer");
     video.src = url + "video/" + sch.video._id + "/" + "360";
+  });
+
+  $("#coba-sekarang").click(function () {
+    alert("hello");
   });
 
   // var judulVideo = $("#judulVideo").html()
@@ -702,6 +708,7 @@ function validateForm() {
   }
   return valid;
 }
+
 function konekInternet() {
   // var passwordLogin = "baktiaksi";
   // var username = "bakti";
@@ -786,12 +793,14 @@ $("#submitHubungi").click(function (event) {
     });
   }
 });
+
 $("#modalVideo").on("hide.bs.modal", function (e) {
   $("#videoPlayer").attr("src", "");
 });
 let bannerImpresionStatus = false;
 let newsImpresionStatus = false;
 let videoImpresionStatus = false;
+
 $("#bannerModal").on("click", function (e) {
   const dataBanner = {
     dfp: dfp,
